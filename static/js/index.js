@@ -2361,7 +2361,9 @@ var Common = exports.Common = function () {
       $('.header__top__contacts__button').click(function () {
         $('.header').removeClass('fixed active visible');
       });
-    } else {
+    }
+    if (!_helpers.Resp.isDesk) {
+      console.log('mobile');
       $('.mobile-active').addClass('active');
       $('.products').addClass('active');
     }
@@ -2396,7 +2398,7 @@ var Common = exports.Common = function () {
       menuOpenBtn.click(function () {
         toggleMenu();
       });
-
+      т;
       menuChildOpen.click(function () {
 
         if (!$(this).siblings('.sub__menu').hasClass('active')) {
