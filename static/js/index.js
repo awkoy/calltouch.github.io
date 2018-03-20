@@ -2363,7 +2363,6 @@ var Common = exports.Common = function () {
       });
     }
     if (!_helpers.Resp.isDesk) {
-      console.log('mobile');
       $('.mobile-active').addClass('active');
       $('.products').addClass('active');
     }
@@ -2376,8 +2375,6 @@ var Common = exports.Common = function () {
   _createClass(Common, [{
     key: 'mobileActions',
     value: function mobileActions() {
-      console.log('this is mobile');
-
       var menuOpenBtn = $('.header__top__burger');
       var menuContainer = $('.header__bottom');
       var menuChildOpen = $('.header__menu__link.has-active');
@@ -2398,7 +2395,7 @@ var Common = exports.Common = function () {
       menuOpenBtn.click(function () {
         toggleMenu();
       });
-      т;
+
       menuChildOpen.click(function () {
 
         if (!$(this).siblings('.sub__menu').hasClass('active')) {
@@ -2441,36 +2438,12 @@ var Common = exports.Common = function () {
       var currentScrollTop = window.pageYOffset;
 
       if (currentScrollTop > 70) {
-        console.log('do');
         header.addClass('fixed active visible');
       } else {
         header.removeClass('fixed active visible');
       }
 
       $(".header__top__contacts__numbers").removeClass('active');
-
-      // if(currentScrollTop > 200)  {
-      //   header.addClass('fixed');
-      // } else {
-      //   header.removeClass('fixed');
-      //   header.removeClass('active');
-      // }
-
-      // if(currentScrollTop > headerHeight)  {
-      //   const scrollTop = window.pageYOffset;
-      //   if(!header.hasClass('active'))
-      //     header.addClass('active'); 
-      //   if (this.scrollTop > currentScrollTop) {
-      //     if(!header.hasClass('visible'))
-      //       header.addClass('visible'); 
-      //   } else {        
-      //     if(header.hasClass('visible')) 
-      //       header.removeClass('visible');
-      //   }    
-      //   this.scrollTop = currentScrollTop; 
-      // } else if((currentScrollTop < headerHeight) && (header.hasClass('active'))) { 
-      //   header.removeClass('visible'); 
-      // }
     }
     /**
      * Initialize common scripts.
