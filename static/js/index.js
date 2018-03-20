@@ -2361,6 +2361,9 @@ var Common = exports.Common = function () {
       $('.header__top__contacts__button').click(function () {
         $('.header').removeClass('fixed active visible');
       });
+    } else {
+      $('.mobile-active').addClass('active');
+      $('.products').addClass('active');
     }
 
     this.scrollTop = 0;
@@ -2377,13 +2380,21 @@ var Common = exports.Common = function () {
       var menuContainer = $('.header__bottom');
       var menuChildOpen = $('.header__menu__link.has-active');
 
-      menuOpenBtn.click(function () {
-        $(this).toggleClass('active');
+      var toggleMenu = function toggleMenu() {
+        menuOpenBtn.toggleClass('active');
         menuContainer.toggleClass('active');
         $('body').toggleClass('hidden');
         $('html').toggleClass('hidden');
-        phoneBtn.toggleClass('hide');
-        if ($(this).hasClass('active')) $('.sub__menu').removeClass('active');
+        if (!menuOpenBtn.hasClass('active')) {
+          $('.sub__menu').removeClass('active');
+          $('.header__menu__link').removeClass('active');
+          $('.mobile-active').addClass('active');
+          $('.products').addClass('active');
+        }
+      };
+
+      menuOpenBtn.click(function () {
+        toggleMenu();
       });
 
       menuChildOpen.click(function () {
@@ -2402,6 +2413,12 @@ var Common = exports.Common = function () {
       var phoneBtn = $('.header__top__contacts__button');
 
       phoneBtn.click(function () {
+        menuOpenBtn.removeClass('active');
+        menuContainer.removeClass('active');
+        $('.sub__menu').removeClass('active');
+        $('.header__menu__link').removeClass('active');
+        $('.mobile-active').addClass('active');
+        $('.products').addClass('active');
         $(this).siblings('.header__top__contacts__numbers').toggleClass('active');
       });
 
