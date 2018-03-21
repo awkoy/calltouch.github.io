@@ -490,6 +490,8 @@ var Common = exports.Common = function () {
         $('.header__menu__link').removeClass('active');
         $('.mobile-active').addClass('active');
         $('.products').addClass('active');
+        $('body').removeClass('hidden');
+        $('html').removeClass('hidden');
         $(this).siblings('.header__top__contacts__numbers').toggleClass('active');
       });
 
