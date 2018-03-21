@@ -433,9 +433,9 @@ var Common = exports.Common = function () {
 
     this.tl = new _gsap.TimelineLite({ paused: true, immediateRender: false });
     this.tl.set('.header', { y: 0 });
-    this.tl.to('.header', 0.3, { y: -200, onComplete: function onComplete() {
+    this.tl.to('.header', 0.3, { y: -200, autoAlpha: 0, onComplete: function onComplete() {
         $('.header').addClass('fixed active visible');
-      } }).to('.header', 0.3, { y: 0, onReverseComplete: function onReverseComplete() {
+      } }).to('.header', 0.3, { y: 0, autoAlpha: 1, onReverseComplete: function onReverseComplete() {
         $('.header').removeClass('fixed active visible');
       } });
 
