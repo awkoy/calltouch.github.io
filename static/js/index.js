@@ -510,7 +510,10 @@ var Common = exports.Common = function () {
      */
     value: function init() {
 
-      if (!_helpers.Resp.isDesk) $(document).scroll(this.throttle(this.headerActivate, 100));
+      if (!_helpers.Resp.isMobile) {
+        $(document).scroll(this.throttle(this.headerActivate, 100));
+      }
+
       if (_helpers.Resp.isMobile) this.mobileActions();
     }
   }]);
