@@ -415,6 +415,7 @@ var Common = exports.Common = function () {
         if (!header.hasClass('active')) _this.tl.play();
       } else {
         _this.tl.reverse();
+        $('.header').removeClass('fix');
       }
       $(".header__top__contacts__numbers").removeClass('active');
     };
@@ -423,6 +424,7 @@ var Common = exports.Common = function () {
       $('body').addClass('with-hover');
       $('.header__top__contacts__button').click(function () {
         _this.tl.reverse();
+        $('.header').addClass('fix');
       });
     }
     if (!_helpers.Resp.isDesk) {
