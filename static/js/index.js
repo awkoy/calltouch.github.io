@@ -426,6 +426,7 @@ var Common = exports.Common = function () {
       });
     }
     if (!_helpers.Resp.isDesk) {
+      $('.header').addClass('fixed active visible');
       $('.mobile-active').addClass('active');
       $('.products').addClass('active');
     }
@@ -509,7 +510,7 @@ var Common = exports.Common = function () {
      */
     value: function init() {
 
-      $(document).scroll(this.throttle(this.headerActivate, 100));
+      if (!_helpers.Resp.isDesk) $(document).scroll(this.throttle(this.headerActivate, 100));
       if (_helpers.Resp.isMobile) this.mobileActions();
     }
   }]);
