@@ -441,12 +441,35 @@ var Common = exports.Common = function () {
         $('.header').removeClass('fixed active visible');
       } });
 
+    this.popUpAnimate = new _gsap.TimelineLite({ paused: true });
+    this.popUpAnimate.to('.popup', 0.3, { autoAlpha: 1 });
+
     this.scrollTop = 0;
     // initialize after construction
     this.init();
   }
 
   _createClass(Common, [{
+    key: 'popUpActions',
+    value: function popUpActions() {
+      var _this2 = this;
+
+      var popUpTrigger = $('.popup__trigger');
+      var popUpContainer = $('.popup');
+      var popUpClose = $('.popup__content__close');
+
+      popUpTrigger.click(function () {
+        _this2.popUpAnimate.play();
+        $('body').addClass('hidden');
+        $('html').addClass('hidden');
+      });
+      popUpClose.click(function () {
+        _this2.popUpAnimate.reverse();
+        $('body').removeClass('hidden');
+        $('html').removeClass('hidden');
+      });
+    }
+  }, {
     key: 'mobileActions',
     value: function mobileActions() {
       var menuOpenBtn = $('.header__top__burger');
@@ -514,6 +537,7 @@ var Common = exports.Common = function () {
      */
     value: function init() {
 
+      this.popUpActions();
       if (!_helpers.Resp.isMobile) {
         $(document).scroll(this.throttle(this.headerActivate, 100));
       }
