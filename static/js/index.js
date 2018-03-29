@@ -444,6 +444,9 @@ var Common = exports.Common = function () {
     this.popUpAnimate = new _gsap.TimelineLite({ paused: true });
     this.popUpAnimate.to('.popup', 0.3, { autoAlpha: 1 });
 
+    this.popUpSucces = new _gsap.TimelineLite({ paused: true });
+    this.popUpSucces.to('.popup__main', 0.3, { autoAlpha: 0 }).to('.popup__content__send', 0.3, { autoAlpha: 1 });
+
     this.scrollTop = 0;
     // initialize after construction
     this.init();
@@ -457,6 +460,7 @@ var Common = exports.Common = function () {
       var popUpTrigger = $('.popup__trigger');
       var popUpContainer = $('.popup');
       var popUpClose = $('.popup__content__close');
+      var popUpSubmit = $('.popup__content__form__button');
 
       popUpTrigger.click(function () {
         _this2.popUpAnimate.play();
@@ -465,8 +469,14 @@ var Common = exports.Common = function () {
       });
       popUpClose.click(function () {
         _this2.popUpAnimate.reverse();
+        _this2.popUpSucces.reverse();
         $('body').removeClass('hidden');
         $('html').removeClass('hidden');
+      });
+
+      popUpSubmit.click(function (e) {
+        e.preventDefault();
+        _this2.popUpSucces.play();
       });
     }
   }, {
